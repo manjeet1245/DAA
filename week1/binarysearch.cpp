@@ -17,17 +17,26 @@ while(t--)
   int arr[n];
   for(int i=0;i<n;i++)
     cin>>arr[i];
-  for(int i=0;i<n;i++)
-  {
-    if(arr[i]==num)
+   int first = 0;
+   int  last = n-1;
+   int middle = (first+last)/2;
+    while(first <= last)
     {
-      cout<<i<<" "<<num;
-      break;
+        if(arr[middle]<num)
+            first = middle+1;
+        else if(arr[middle]==num)
+        {
+            cout<<middle+1;
+            break;
+        }
+        else
+            last = middle-1;
+        middle = (first+last)/2;
     }
-     else if(i==n-1 and arr[i]!=num)
-      cout<<"element not present"<<" "<<n;
-
-  }
+    if(first>last)
+        cout<<"element is not present "<<n;
+    cout<<endl;
+    return 0;
 }
    
 cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << "\n";
