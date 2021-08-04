@@ -15,28 +15,34 @@ int main()
   int n;
   cin>>n;
   bool flag=true;
-  int arr[n];
+  std::vector<int> v;
   for(int i=0;i<n;i++)
   {
-    cin>>arr[i];
+    int a;
+    cin>>a;
+    v.emplace_back(a);
   }
   for(int i=0;i<n-2;i++)
   {
-    for(int j=i+1;j<n-1;j++)
+    for(int j=0;j<n-1;j++)
     {
-        int k=j+1;
-       
-        
-            if(arr[i]+arr[j]==arr[k])
-            {
-                flag=false;
-                cout<<"Sequence found:"<<i<<" "<<j<<" "<<k<<"\n";
-            }
-        
+        int t=v[i]+v[j];
+        auto it=find(v.begin(),v.end(),t);
+        if(it==v.end())
+            flag=false;
+        else
+        {
+            flag =true;
+            int aa=it-v.begin();
+            cout<<"sequence found:"<<i<<" "<<j<<" "<<aa<<"\n";
+            break;
+        }
     }
+    if(flag)
+        break;
   }
-  if(flag)
-    cout<<"Sequence not found.\n";
+  if(!flag)
+    cout<<"sequence not found\n";
   }
 cerr << "time taken : " << (float)clock() / CLOCKS_PER_SEC << " secs" << "\n";
     return 0;
