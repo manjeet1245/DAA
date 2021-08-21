@@ -3,18 +3,6 @@
 using namespace std;
 #define sync ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define check(x)                cerr << #x << ": " << x << endl;
-ll isPrime(ll n) {
-   ll i;
-   for(i=2; i*i<=n; ++i) {
-      if(n%i==0) {
-        
-         
-         return 0;
-      }
-   }
-   return 1;
-  
-}
 
 void solve()
 {
